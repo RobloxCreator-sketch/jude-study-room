@@ -5,23 +5,23 @@
   "files": [
     {
       "path": "account.js",
-      "size": 6676,
-      "sha256": "f1735a500866e6a9e09cea9627ce3e007c44517a0c014e3c09ab217697cd35ad"
+      "size": 7066,
+      "sha256": "0abc4cc0c8f37054ad265bd9fc34408d08983c11f29feab7e6fb53c25aa18f61"
     },
     {
       "path": "app.js",
-      "size": 12398,
-      "sha256": "47d92cd1f5dd221c77347b802e045e3fbf158f4621e93f24b70680cd737d5b81"
+      "size": 12789,
+      "sha256": "dff4f8de1a14b4521efb9d0cbf941c5ce2c042b8bf8c4fb4e62e05a6c65b1da3"
     },
     {
       "path": "authoring.js",
-      "size": 18975,
-      "sha256": "c21add4e8bd9e3ecc68e8e061fe59fa4da96742e8d43302f6be7b9041cd34601"
+      "size": 19042,
+      "sha256": "86b565c8ec9bf4b260dd28c7c995e07793802782c1cdcda4bcdd946816c4ad5a"
     },
     {
       "path": "index.html",
-      "size": 2133,
-      "sha256": "64860bf0679a2634b0104ae9aeab1033c1845c216fe8ef2b1dee6532b9f3bb41"
+      "size": 2607,
+      "sha256": "1ef956a30b31371d6db7f584d63b5d44ac56295ecc5abac35de7ab24b7e37791"
     },
     {
       "path": "lessons.js",
@@ -34,14 +34,19 @@
       "sha256": "bfc07025e7469144e205b20413ec7e9da704c02562a6a2365a17dd318afed4db"
     },
     {
+      "path": "student-preview.js",
+      "size": 2372,
+      "sha256": "c302fe39a1719a77c51578859eceb25b96a277ef8e646705f568176bde6ba93f"
+    },
+    {
       "path": "style.css",
-      "size": 16441,
-      "sha256": "8c06f553ce14ad7105eeb9481ce3bb644d17b570757f60e5f0ce9739bfc63fef"
+      "size": 16906,
+      "sha256": "67208c33a123354780487e8b23aeb41781887f62a926d1bf097d34d12075d11d"
     },
     {
       "path": "submissions.js",
-      "size": 3866,
-      "sha256": "14d734d888b24cc467294902e188658bf706157bf6d43a2154549a1904ca889a"
+      "size": 4001,
+      "sha256": "81f99b47bbb665aef3ee5d2979d1a74f4823ad111844e232737610b33ff059ea"
     },
     {
       "path": "updates.js",
@@ -169,5 +174,5 @@
       "sha256": "353bc416eeb2cd4624348722b45df34c9bf8c06252b32dc12822a18f31d079fa"
     }
   ],
-  "contentId": "266706071a5d7272fccc3f41be7bce0c5ddd94ee6a4ceb49e00cd7485d6473b8"
+  "contentId": "556a54a20dec0a3403516268a56ff76cf4c8298b6a40554a6c1310617cff4b1f"
 }
