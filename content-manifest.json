@@ -35,8 +35,8 @@
     },
     {
       "path": "student-preview.js",
-      "size": 2460,
-      "sha256": "303e980343d4d8442ee60ecd1904f8ae12a1905aac60545f76db3d5c1b4d510f"
+      "size": 2608,
+      "sha256": "3503ca5b4da9ad1a6177d45943e0d744610fea7f2522917dd1d78018fcf4f01d"
     },
     {
       "path": "style.css",
@@ -174,5 +174,5 @@
       "sha256": "353bc416eeb2cd4624348722b45df34c9bf8c06252b32dc12822a18f31d079fa"
     }
   ],
-  "contentId": "125721a0d79352764a40855255a80f3307fc40e2add1bfbdc0a846af6e5d56dd"
+  "contentId": "7b33cf98a00e7afa59f1b9137381ca6b23ae6d0adc1dc9502610d5727db7133a"
 }

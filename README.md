@@ -105,7 +105,7 @@ Student responses omit hidden classes, units, lessons, assignments, and lesson n
 
 The Edit button now works for the original GED lessons as well as custom lessons. Edits replace the existing lesson ID rather than making a second copy, and preserve answers, grades, feedback, notes, and attachments. The original science table and supported source reference remain attached to the lesson when edited. If a lesson is already visible, editing it updates what Jude sees; hide it first to prepare changes privately.
 
-Tutor accounts can choose **View as student** to preview published content and existing submissions/grades. Hidden classes, units, and lessons are excluded. The preview is read only: it blocks answer/notes saves, uploads, removals, and account changes, and omits private tutor notes and answer guides. Choose **Back to tutor** to resume editing. No additional login is needed.
+Tutor accounts can choose **View as student** to preview published content and existing submissions/grades. Unenrolled electives and hidden classes, units, and lessons are excluded. The preview is read only: it blocks answer/notes saves, uploads, removals, and account changes, and omits private tutor notes and answer guides. Choose **Back to tutor** to resume editing. No additional login is needed.
 
 ## GitHub course website
 
@@ -120,3 +120,9 @@ The gradual academic upgrade is tracked in [docs/academic-roadmap.md](docs/acade
 ## English lesson plan import
 
 Five English courses were imported as hidden classroom drafts with draft website listings. Each course page uses `#course/<classroom ID>` and groups its units and lessons. Reading-only lessons support notes without creating assignments. The source plan contains 20 units, 45 lessons (35 reading/exploration lessons and 10 writing/presentation tasks). Titles, unit names, reading references, source page numbers, provided resource links, and the American Goth recommended prerequisite are retained. Full literary texts are not included. The one-time server import preserves current classroom IDs and all existing student work; a transaction marker prevents duplicates. Tutor edits are retained on future launches.
+
+## Catalog visibility and elective enrollment
+
+Publishing a listing makes a course browseable and opens signup; it does not enroll the student. The tutor's publish action releases that class's materials to enrolled students. The student's desktop, notes, assignment saves, file access, and tutor student-preview all require elective enrollment. Required GED classes remain enrolled. Existing enrollments and work are preserved. Existing published listings are normalized once to the new enrollment-based model; future manual classroom pauses remain respected.
+
+A published specialty is visible even when some required courses are not open. Those course titles appear as Coming soon, without draft outlines or materials. Selecting a specialty does not enroll its courses; Join available required classes joins only published, ready courses. Public course pages show the unit/lesson outline; elective lesson bodies and assignment instructions unlock only after sign-in and enrollment. No new desktop installer is needed on 0.6.0.

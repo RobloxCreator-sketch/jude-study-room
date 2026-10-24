@@ -1,11 +1,11 @@
 let studentPreview=false;
 function studentPreviewState(room){
- const body=structuredClone(room),v=body.visibility||{},hidden=(kind,id)=>(v[kind]||[]).includes(id);
- body.assignments=body.assignments.filter(a=>!hidden('classes',a.subject)&&!hidden('units',a.unitId||'unit-1-'+a.subject)&&!hidden('lessons',a.id));
+ const body=structuredClone(room),v=body.visibility||{},hidden=(kind,id)=>(v[kind]||[]).includes(id),enrolled=id=>id<4||(body.courseEnrollment?.courses||[]).includes(id);
+ body.assignments=body.assignments.filter(a=>enrolled(a.subject)&&!hidden('classes',a.subject)&&!hidden('units',a.unitId||'unit-1-'+a.subject)&&!hidden('lessons',a.id));
  const ids=new Set(body.assignments.map(a=>a.id));
- body.classes=(body.classes||baseClasses).map(c=>c&&!hidden('classes',c.id)?c:null);
- body.units=(body.units||defaultUnits).filter(u=>!hidden('classes',u.subject)&&!hidden('units',u.id));
- body.lessons=(body.lessons||[]).filter(l=>!hidden('classes',l.subject)&&!hidden('units',l.unitId||'unit-1-'+l.subject)&&!hidden('lessons',l.id));
+ body.classes=(body.classes||baseClasses).map(c=>c&&enrolled(c.id)&&!hidden('classes',c.id)?c:null);
+ body.units=(body.units||defaultUnits).filter(u=>enrolled(u.subject)&&!hidden('classes',u.subject)&&!hidden('units',u.id));
+ body.lessons=(body.lessons||[]).filter(l=>enrolled(l.subject)&&!hidden('classes',l.subject)&&!hidden('units',l.unitId||'unit-1-'+l.subject)&&!hidden('lessons',l.id));
  delete body.visibility;delete body.lessonGuides;
  // Tutor notes are personal and do not represent Jude's notebook.
  for(const key of Object.keys(body))if(/^notes[0-3]$/.test(key)||key.startsWith('notes_'))delete body[key];
