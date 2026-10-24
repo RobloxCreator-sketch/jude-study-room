@@ -15,8 +15,8 @@
     },
     {
       "path": "index.html",
-      "size": 2065,
-      "sha256": "8bd13035edaf89be6609994cb5dd95b182f06eb703fa5ab689ce58c4fc12aa3c"
+      "size": 2097,
+      "sha256": "757d299d85074bb5bb518ddd77861f1cc61f862c2cc2da890dfebd334706fdb8"
     },
     {
       "path": "lessons.js",
@@ -164,5 +164,5 @@
       "sha256": "353bc416eeb2cd4624348722b45df34c9bf8c06252b32dc12822a18f31d079fa"
     }
   ],
-  "contentId": "16aa1afdef1955322ea90875bdc90658b6e3e54b9f35a0e0fe5f3d10f75dbc6e"
+  "contentId": "7bb41449ec6474aa9b1cc3356ccf12f5e41715bec82d279ef16441f078e41f2d"
 }
