@@ -15,12 +15,12 @@ Sign in with your existing classroom username. The app uses the same hosted clas
 
 Choose **Updates** in the app or **Help → Check for updates**. The app also checks at launch and every six hours. Windows downloads updates only when you choose to download, and restarts only after confirmation. On Mac, an update opens the exact GitHub download for this app and your processor; replace the app manually. Save open work before installing.
 
-The legacy 0.2.0 build does not have an updater. Install 0.3.0 once to enable the update system.
+The legacy 0.2.0 build does not have an updater. Install the current version once to enable the update system.
 
 ## Publishing another version
 
 1. Make and test the app changes.
-2. Increase `version` in `package.json` (for example, `0.3.0` to `0.3.1`).
+2. Increase `version` in `package.json` (for example, `0.4.0` to `0.4.1`).
 3. Commit and push to `main`.
 
 GitHub Actions runs tests, builds the Mac app on a Mac runner and the Windows installer on a Windows runner, checks that required update components are packaged, and publishes a complete GitHub Release. Downloads are kept in a draft until both platforms finish. Published versions are not overwritten; use a new version for a new update. No personal GitHub token or Apple Developer account is required by this workflow. The workflow's temporary GitHub token stays in GitHub Actions and is not bundled into the app.
@@ -40,3 +40,16 @@ pnpm start
 Build Windows on Windows with `pnpm dist:win`. Build a manual Mac download on Mac with `node scripts/package-mac.cjs arm64`.
 
 New lessons are still part of the bundled app in this version. Moving lessons into the online classroom and adding a tutor lesson editor is a separate feature, after which normal lesson edits would not need an app release. Assignments, submissions, and grades already sync online; click Refresh to load the other person's changes.
+
+## Unit folders and Lesson 2 (0.4.0)
+
+Open Classrooms, choose a subject, then open its Unit 1 folder. Each subject now has two lessons:
+
+- Mathematics: two-step equations; like terms and the distributive property.
+- Language Arts: main idea; evidence-based inferences.
+- Science: fair experiments; data tables and line graphs.
+- Social Studies: evidence and opinion; the three federal branches.
+
+Each Lesson 2 includes a credited YouTube video, three short original readings, a visual, personal notes, and five questions worth 20 points. The science lesson also has a table and line graph. Tutor answer guides are supplied only to authenticated tutor accounts by the classroom service.
+
+Tutors can choose **+ New unit** in a classroom, **Move** beside a lesson, and a unit folder when creating an assignment. Unit organization is shared with Jude. Existing answers, grades, due dates, feedback, and notes are preserved. Click Refresh to load changes from the other app. Both people should install 0.4.0 to use folder navigation.
