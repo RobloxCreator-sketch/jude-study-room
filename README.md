@@ -39,7 +39,7 @@ pnpm start
 
 Build Windows on Windows with `pnpm dist:win`. Build a manual Mac download on Mac with `node scripts/package-mac.cjs arm64`.
 
-New lessons are still part of the bundled app in this version. Moving lessons into the online classroom and adding a tutor lesson editor is a separate feature, after which normal lesson edits would not need an app release. Assignments, submissions, and grades already sync online; click Refresh to load the other person's changes.
+From 0.6.0, lessons and classroom interface files update independently from the installed desktop app. They are delivered through the validated GitHub classroom channel described below. Assignments, submissions, and grades sync online; click Refresh to load the other person’s changes.
 
 ## Unit folders and Lesson 2 (0.4.0)
 
@@ -65,3 +65,22 @@ Files are held in private classroom storage and retrieved through authenticated 
 A Docs link opens in the browser and still needs normal Google sharing with the tutor. It is a live document, not a frozen submission; upload a PDF when a fixed copy matters. The app does not connect to Google Drive or request Google account credentials.
 
 JSON backups include links and metadata, not attachment bytes. Download important attachments separately. The separate classroom service handles the additive metadata migration; account and work tables are preserved.
+
+## Classroom updates without reinstalling (0.6.0)
+
+Install 0.6.0 once on Mac and Windows. Each launch checks a dedicated GitHub `classroom` branch for validated interface and lesson files. Only changed files download; matching bundled or saved files are reused. A complete snapshot becomes active after every file’s SHA-256 and size match. The app retains a local copy and includes its original classroom for fallback. An offline launch can open that interface; signing in, saving work, and loading YouTube still require internet.
+
+**Updates → Check classroom updates** can download improvements during a session. **Reload classroom** asks you to save first and signs you in again. It never reloads open work automatically. **Help → Recover included classroom** restores the interface shipped with the desktop app for that session.
+
+### Publishing a lesson or interface change
+
+1. Edit `ui/` (including `ui/lessons.js` for bundled lesson material).
+2. Run `node scripts/content-manifest.cjs`.
+3. Run `pnpm test` and `node scripts/validate-release.cjs`, then push to `main`.
+4. GitHub validation must pass before `publish-classroom` advances the delivery branch.
+
+Keep `package.json` at the same version for classroom-only changes. Once that desktop version has been released, the workflow skips installer builds and publishes only the classroom channel. Add matching shared assignments and tutor-only answer guides through the separate private classroom service when introducing a new assigned lesson. An in-app lesson authoring editor is not included in this change.
+
+The native bridge is versioned. Changes to `desktop/`, native dependencies, Electron, or new operating-system features need a desktop version bump and installers. Raise the manifest’s minimum shell version or bridge version when a classroom interface requires new native capabilities. Existing apps keep their saved interface if they cannot use a newer bridge.
+
+Classroom downloads are pinned to one commit of this repository, fetched over HTTPS without credentials, bounded by file/count/total limits, and kept inside the app’s own cache. No archive extraction, native executable patches, account records, password tokens, or assignment uploads are involved in the GitHub content channel. The renderer keeps its existing sandbox, context isolation, navigation restrictions, and a narrowly checked main-frame bridge.

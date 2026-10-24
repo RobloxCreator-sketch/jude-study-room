@@ -1,11 +1,14 @@
-Readable math and flexible assignment submissions.
+Classroom improvements now update without replacing the app.
 
-- Math displays real exponents, fractions, and square roots in lessons, assignment instructions, answer previews, and tutor review. Type x^2, 1/2, or sqrt(x); use the symbol buttons for more. Longer equations support LaTeX inside \( … \) or $$ … $$. Math rendering is bundled with the app and works offline.
-- Jude can attach photos of paper homework, PDFs, Word documents (.docx), and text files. Up to five files per assignment, 10 MB each. JPG, PNG, and WebP photos can be viewed inside the assignment. Export HEIC photos as JPG first.
-- Submit using text, files, a Google Docs document link, or a combination. Share a linked Doc with the tutor’s Google account, or attach a PDF for a fixed copy.
-- Tutors can preview photos, download files, and grade file-only or link-only work. Uploaded files are shared immediately; save submits written answers and document links. Graded submissions cannot be changed until the tutor clears the grade.
-- Files require classroom sign-in. They are stored separately from GitHub. Existing usernames, passwords, lessons, answers, grades, notes, and unit folders are preserved. Older apps preserve file metadata and document links; use 0.5.0 on both computers for the new controls.
+**Install 0.6.0 once on each computer to enable this.** Afterward, lessons and most interface changes arrive automatically when the app opens. Only changed classroom files download from the validated GitHub update channel.
 
-**Update:** Choose Updates in the app. On Mac, quit the old app and replace it in Applications with the mac-arm64 ZIP download. Windows can download and install from inside the app. Save your work before updating. This personal Mac build is ad-hoc signed and is not Apple-notarized.
+- A complete classroom snapshot is checked before it is used. Interrupted downloads keep the previous interface.
+- Updates → Check classroom updates lets you fetch improvements without quitting. Reload only when your work is saved; you will sign in again.
+- Open assignments are never automatically reloaded.
+- A saved interface is available when an update check cannot connect. Internet is still needed to sign in, save shared work, or watch videos.
+- Help → Recover included classroom provides a fallback interface.
+- Existing usernames, passwords, lessons, unit folders, answers, grades, notes, files, and Google Docs links are retained.
 
-JSON backups contain assignment data and links, not file contents. Download important files separately.
+Changes to the desktop engine or operating-system features may occasionally need a full app update. The Updates panel distinguishes classroom updates from desktop updates.
+
+**This one-time install:** On Mac, quit the old app, unzip the mac-arm64 download, and replace Jude Study Room in Applications. Windows can install through the app’s existing Updates screen. This personal Mac build is ad-hoc signed and is not Apple-notarized.

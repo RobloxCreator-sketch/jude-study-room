@@ -36,6 +36,23 @@ jobs:
         run: node scripts/plan-release.cjs
         env:
           GH_TOKEN: ${{ github.token }}
+  publish-classroom:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node scripts/publish-content.cjs
+        env:
+          GH_TOKEN: ${{ github.token }}
   build:
     needs: validate
     if: needs.validate.outputs.should_build == 'true'

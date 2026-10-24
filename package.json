@@ -1,6 +1,6 @@
 {
   "name": "jude-study-room-desktop",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "description": "A personal GED classroom for Jude and his tutor",
   "author": "Jude\u2019s Study Room",
@@ -9,7 +9,8 @@
     "start": "electron .",
     "dist:mac": "electron-builder --mac zip --publish never",
     "dist:win": "electron-builder --win nsis --x64 --publish never",
-    "test": "node --test tests/*.test.cjs"
+    "test": "node --test tests/*.test.cjs",
+    "content:prepare": "node scripts/content-manifest.cjs"
   },
   "devDependencies": {
     "electron": "45.0.0",
@@ -24,7 +25,8 @@
     "files": [
       "desktop/**",
       "ui/**",
-      "package.json"
+      "package.json",
+      "content-manifest.json"
     ],
     "asar": true,
     "mac": {

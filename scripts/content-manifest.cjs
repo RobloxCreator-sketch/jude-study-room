@@ -1,0 +1,6 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path');const {hash,manifestId,validPath}=require('../desktop/content.cjs');
+const root=path.resolve(__dirname,'../ui'),files=[];
+function walk(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name,'en'))){const p=path.join(dir,item.name);if(item.isSymbolicLink())throw Error('UI symlinks are not supported.');if(item.isDirectory())walk(p);else{const name=path.relative(root,p).split(path.sep).join('/');if(!validPath(name))throw Error('Unsupported UI path: '+name);const bytes=fs.readFileSync(p);files.push({path:name,size:bytes.length,sha256:hash(bytes)})}}}walk(root);files.sort((a,b)=>a.path.localeCompare(b.path,'en'));
+const manifest={schema:1,bridgeVersion:1,minShellVersion:'0.6.0',files};manifest.contentId=manifestId(manifest);const output=JSON.stringify(manifest,null,2)+'\n',dest=path.join(root,'../content-manifest.json');
+if(process.argv.includes('--check')){if(fs.readFileSync(dest,'utf8')!==output)throw Error('Run node scripts/content-manifest.cjs after editing classroom files.');console.log('Classroom content manifest verified:',manifest.contentId.slice(0,10))}else{fs.writeFileSync(dest,output);console.log('Classroom content manifest updated:',manifest.contentId.slice(0,10))}
