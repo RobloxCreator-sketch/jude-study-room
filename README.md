@@ -96,3 +96,11 @@ The lesson editor supports a goal, optional YouTube video, up to ten short readi
 An EffectCraft Studio starter class introduces compositions, layers, and a first title card, based on the [official EffectCraft project](https://github.com/storytold/effectcraft). Its assignment accepts a screenshot and explanation; no video render or project-file upload is required. The starter lesson has no embedded tutorial video. Tutors may add a YouTube video in the editor.
 
 The shared service enforces tutor-only editing, hides answer guides from student responses, validates class/lesson membership, and preserves older clients’ GED views without dropping extracurricular records. Personal notes remain per account. Up to 20 classes and 200 custom lessons are supported, subject to classroom request-size limits.
+
+## Tutor drafts and visibility
+
+Tutors can hide or show a whole class, a unit, or an individual lesson. Hidden parent content also hides its descendants and related assignments/grades from the student view. New classes, manually created units, and new lessons start hidden; existing content keeps its prior visibility. The tutor sees hidden labels and can continue editing. Showing a parent preserves individual child draft settings.
+
+Student responses omit hidden classes, units, lessons, assignments, and lesson notes. File download/upload/removal requests and forged submissions for hidden assignments are rejected by the classroom service. Hiding keeps saved answers, grades, notes, and uploaded files intact. A learner who already has content open should refresh to see visibility changes.
+
+The Edit button now works for the original GED lessons as well as custom lessons. Edits replace the existing lesson ID rather than making a second copy, and preserve answers, grades, feedback, notes, and attachments. The original science table and supported source reference remain attached to the lesson when edited. If a lesson is already visible, editing it updates what Jude sees; hide it first to prepare changes privately.
