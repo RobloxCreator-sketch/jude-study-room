@@ -1,9 +1,11 @@
-Jude Study Room now checks GitHub for app updates.
+Readable math and flexible assignment submissions.
 
-- **Windows:** Install the Setup.exe once to transition from the previous ZIP installation. Future releases appear inside the app; choose Download update, then Install and restart.
-- **Mac (Apple Silicon):** Download the Mac ZIP, quit the old app, unzip, and replace Jude Study Room in Applications. Future releases show a download notification in the app. This personal Mac build is ad-hoc signed, not Apple-notarized.
-- Open **Updates** in the app or **Help → Check for updates** at any time. Updates also check at launch and every six hours while the app is running.
-- You choose when downloads and restarts happen. Save open work first.
-- The same online classroom, usernames, passwords, assignments, answers, and grades are retained.
+- Math displays real exponents, fractions, and square roots in lessons, assignment instructions, answer previews, and tutor review. Type x^2, 1/2, or sqrt(x); use the symbol buttons for more. Longer equations support LaTeX inside \( … \) or $$ … $$. Math rendering is bundled with the app and works offline.
+- Jude can attach photos of paper homework, PDFs, Word documents (.docx), and text files. Up to five files per assignment, 10 MB each. JPG, PNG, and WebP photos can be viewed inside the assignment. Export HEIC photos as JPG first.
+- Submit using text, files, a Google Docs document link, or a combination. Share a linked Doc with the tutor’s Google account, or attach a PDF for a fixed copy.
+- Tutors can preview photos, download files, and grade file-only or link-only work. Uploaded files are shared immediately; save submits written answers and document links. Graded submissions cannot be changed until the tutor clears the grade.
+- Files require classroom sign-in. They are stored separately from GitHub. Existing usernames, passwords, lessons, answers, grades, notes, and unit folders are preserved. Older apps preserve file metadata and document links; use 0.5.0 on both computers for the new controls.
 
-This release contains the app only. Passwords and classroom records are not included in the GitHub repository or downloads.
+**Update:** Choose Updates in the app. On Mac, quit the old app and replace it in Applications with the mac-arm64 ZIP download. Windows can download and install from inside the app. Save your work before updating. This personal Mac build is ad-hoc signed and is not Apple-notarized.
+
+JSON backups contain assignment data and links, not file contents. Download important files separately.

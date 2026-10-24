@@ -53,3 +53,15 @@ Open Classrooms, choose a subject, then open its Unit 1 folder. Each subject now
 Each Lesson 2 includes a credited YouTube video, three short original readings, a visual, personal notes, and five questions worth 20 points. The science lesson also has a table and line graph. Tutor answer guides are supplied only to authenticated tutor accounts by the classroom service.
 
 Tutors can choose **+ New unit** in a classroom, **Move** beside a lesson, and a unit folder when creating an assignment. Unit organization is shared with Jude. Existing answers, grades, due dates, feedback, and notes are preserved. Click Refresh to load changes from the other app. Both people should install 0.4.0 to use folder navigation.
+
+## Readable math and flexible submissions (0.5.0)
+
+The app bundles [KaTeX](https://katex.org/) under its MIT license for readable, accessible math without a CDN. Powers such as `x^2`, numeric fractions such as `1/2`, and `sqrt(x)` render automatically. Formal expressions use LaTeX inside `\( … \)`, `\[ … \]`, or `$$ … $$`. Dollar prices in prose remain plain text. Input stays editable as text while a live preview shows the formatted result. Rendering disables trusted commands and limits macro expansion.
+
+Students can submit written answers, files, a Google Docs document link, or a combination. The student account selects files through the operating system picker. The tutor can view JPG/PNG/WebP photos in the app and download documents. Supported uploads: JPG/JPEG, PNG, WebP, PDF, DOCX, UTF-8 TXT; up to five files per assignment, 10 MB per file, and 200 MB total for this personal classroom. Convert HEIC photos to JPG. File type signatures and server-side quotas are checked.
+
+Files are held in private classroom storage and retrieved through authenticated routes; they are absent from this public repository. Uploads submit immediately. Text and document links submit on Save. File changes update the classroom revision so simultaneous edits cannot silently overwrite work. Graded work rejects file changes and answer/link edits until the tutor clears its grade.
+
+A Docs link opens in the browser and still needs normal Google sharing with the tutor. It is a live document, not a frozen submission; upload a PDF when a fixed copy matters. The app does not connect to Google Drive or request Google account credentials.
+
+JSON backups include links and metadata, not attachment bytes. Download important attachments separately. The separate classroom service handles the additive metadata migration; account and work tables are preserved.
