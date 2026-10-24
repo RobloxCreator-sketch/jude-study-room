@@ -1,0 +1,4 @@
+const fs=require('node:fs');const {spawnSync}=require('node:child_process');const tag='v'+require('../package.json').version;
+const event=process.env.GITHUB_EVENT_NAME;let publish=event!=='pull_request';let shouldBuild=true;
+if(publish){const check=spawnSync('gh',['api',`repos/${process.env.GITHUB_REPOSITORY}/releases/tags/${tag}`],{encoding:'utf8'});if(check.status===0){const release=JSON.parse(check.stdout);if(!release.draft){publish=false;shouldBuild=false;console.log(`${tag} is already published. Bump package.json to publish another update.`)}else if(release.target_commitish!==process.env.GITHUB_SHA)throw Error('An existing draft uses this version for another commit. Choose a new version.')}else if(!check.stderr.includes('HTTP 404'))throw Error(check.stderr||'Could not check the release status.');}
+fs.appendFileSync(process.env.GITHUB_OUTPUT,`publish=${publish}\nshould_build=${shouldBuild}\n`);

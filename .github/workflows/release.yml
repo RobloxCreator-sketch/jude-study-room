@@ -1,0 +1,112 @@
+name: Build and publish app updates
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: jude-release-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      tag: ${{ steps.version.outputs.tag }}
+      publish: ${{ steps.plan.outputs.publish }}
+      should_build: ${{ steps.plan.outputs.should_build }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm install --frozen-lockfile
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
+      - run: pnpm test
+      - id: version
+        run: node scripts/validate-release.cjs
+      - id: plan
+        run: node scripts/plan-release.cjs
+        env:
+          GH_TOKEN: ${{ github.token }}
+  build:
+    needs: validate
+    if: needs.validate.outputs.should_build == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: windows
+          - os: macos-15
+            platform: mac
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - if: matrix.platform == 'windows'
+        run: pnpm dist:win
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - if: matrix.platform == 'windows'
+        run: node scripts/inspect-package.cjs release/win-unpacked/resources/app.asar
+      - if: matrix.platform == 'mac'
+        run: node scripts/package-mac.cjs arm64
+      - if: matrix.platform == 'mac'
+        run: node scripts/inspect-package.cjs 'release/mac-arm64/Jude Study Room.app/Contents/Resources/app.asar'
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: ${{ matrix.platform }}-downloads
+          path: |
+            release/*.exe
+            release/*.zip
+            release/*.yml
+            release/*.blockmap
+          if-no-files-found: error
+          retention-days: 7
+  publish:
+    needs: [validate, build]
+    if: needs.validate.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          pattern: '*-downloads'
+          path: release-downloads
+          merge-multiple: true
+      - run: node scripts/checksums.cjs
+      - name: Publish a complete release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.validate.outputs.tag }}
+        run: |
+          if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --draft --title "Jude Study Room $TAG" --notes-file RELEASE-NOTES.md
+          fi
+          gh release upload "$TAG" release-downloads/* --repo "$GITHUB_REPOSITORY" --clobber
+          gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false --latest=true
