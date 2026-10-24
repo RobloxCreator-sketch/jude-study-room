@@ -106,3 +106,11 @@ Student responses omit hidden classes, units, lessons, assignments, and lesson n
 The Edit button now works for the original GED lessons as well as custom lessons. Edits replace the existing lesson ID rather than making a second copy, and preserve answers, grades, feedback, notes, and attachments. The original science table and supported source reference remain attached to the lesson when edited. If a lesson is already visible, editing it updates what Jude sees; hide it first to prepare changes privately.
 
 Tutor accounts can choose **View as student** to preview published content and existing submissions/grades. Hidden classes, units, and lessons are excluded. The preview is read only: it blocks answer/notes saves, uploads, removals, and account changes, and omits private tutor notes and answer guides. Choose **Back to tutor** to resume editing. No additional login is needed.
+
+## GitHub course website
+
+The `website/` directory publishes to GitHub Pages through `.github/workflows/pages.yml`. Public visitors can browse published, visible course listings and specialty requirements. Tutor and student accounts use the existing classroom service at `jude-study-room-login.blueseed4096.chatgpt.site`; no passwords, sessions, grades, or enrollments are stored in GitHub.
+
+In Tutor studio, edit the seeded course descriptions/outlines or add a listing linked to an app classroom. New listings and specialties start as drafts. Each specialty defines required course IDs; publishing requires all of them to be available. Student enrollment is immediate and stored under the existing student username. My path derives completion from all visible assignments meeting each course’s configurable passing grade (default 70%). This is a personal learning plan, not an accredited degree. The classroom app marks joined courses after Refresh, while keeping existing class access intact.
+
+Future code changes publish from GitHub. Directory/outline/specialty edits save directly from the tutor’s website login without rebuilding the website or desktop app.

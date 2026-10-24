@@ -10,8 +10,8 @@
     },
     {
       "path": "app.js",
-      "size": 12789,
-      "sha256": "dff4f8de1a14b4521efb9d0cbf941c5ce2c042b8bf8c4fb4e62e05a6c65b1da3"
+      "size": 12914,
+      "sha256": "41db3f5cd6522d6ef3fa95761ac7912422b1b67490dc80ec3eab93310408403a"
     },
     {
       "path": "authoring.js",
@@ -40,8 +40,8 @@
     },
     {
       "path": "style.css",
-      "size": 16906,
-      "sha256": "67208c33a123354780487e8b23aeb41781887f62a926d1bf097d34d12075d11d"
+      "size": 17044,
+      "sha256": "9d375219ae421c3347a3f699e9e2c8f117b70608f76a53e61e911e91c1d5b800"
     },
     {
       "path": "submissions.js",
@@ -174,5 +174,5 @@
       "sha256": "353bc416eeb2cd4624348722b45df34c9bf8c06252b32dc12822a18f31d079fa"
     }
   ],
-  "contentId": "556a54a20dec0a3403516268a56ff76cf4c8298b6a40554a6c1310617cff4b1f"
+  "contentId": "e1782316f728fec218522a3f4bbf1685091181461913ca6ff8dacb38296529fd"
 }
