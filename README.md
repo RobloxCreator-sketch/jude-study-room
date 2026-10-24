@@ -116,3 +116,7 @@ In Tutor studio, edit the seeded course descriptions/outlines or add a listing l
 Future code changes publish from GitHub. Directory/outline/specialty edits save directly from the tutor’s website login without rebuilding the website or desktop app.
 
 The gradual academic upgrade is tracked in [docs/academic-roadmap.md](docs/academic-roadmap.md). Stage 1 adds official GED records and required enrollment while preserving elective enrollment, classroom access, and all existing work. Later stages add elective lifecycle/slot rules, richer course authoring, and branching pathways.
+
+## English lesson plan import
+
+Five English courses were imported as hidden classroom drafts with draft website listings. Each course page uses `#course/<classroom ID>` and groups its units and lessons. Reading-only lessons support notes without creating assignments. The source plan contains 20 units, 45 lessons (35 reading/exploration lessons and 10 writing/presentation tasks). Titles, unit names, reading references, source page numbers, provided resource links, and the American Goth recommended prerequisite are retained. Full literary texts are not included. The one-time server import preserves current classroom IDs and all existing student work; a transaction marker prevents duplicates. Tutor edits are retained on future launches.

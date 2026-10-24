@@ -5,7 +5,7 @@ function studentPreviewState(room){
  const ids=new Set(body.assignments.map(a=>a.id));
  body.classes=(body.classes||baseClasses).map(c=>c&&!hidden('classes',c.id)?c:null);
  body.units=(body.units||defaultUnits).filter(u=>!hidden('classes',u.subject)&&!hidden('units',u.id));
- body.lessons=(body.lessons||[]).filter(l=>ids.has(l.id));
+ body.lessons=(body.lessons||[]).filter(l=>!hidden('classes',l.subject)&&!hidden('units',l.unitId||'unit-1-'+l.subject)&&!hidden('lessons',l.id));
  delete body.visibility;delete body.lessonGuides;
  // Tutor notes are personal and do not represent Jude's notebook.
  for(const key of Object.keys(body))if(/^notes[0-3]$/.test(key)||key.startsWith('notes_'))delete body[key];
