@@ -10,8 +10,8 @@
     },
     {
       "path": "app.js",
-      "size": 12914,
-      "sha256": "41db3f5cd6522d6ef3fa95761ac7912422b1b67490dc80ec3eab93310408403a"
+      "size": 13128,
+      "sha256": "779828098f796dfc605123dfc12b83c60e959e16032dbde23f530c51f46dcc65"
     },
     {
       "path": "authoring.js",
@@ -174,5 +174,5 @@
       "sha256": "353bc416eeb2cd4624348722b45df34c9bf8c06252b32dc12822a18f31d079fa"
     }
   ],
-  "contentId": "e1782316f728fec218522a3f4bbf1685091181461913ca6ff8dacb38296529fd"
+  "contentId": "c88c2405029ea7c728d1e52f826928bfee30b8096410a8c460972f52c4dd10a0"
 }
