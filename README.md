@@ -79,8 +79,20 @@ Install 0.6.0 once on Mac and Windows. Each launch checks a dedicated GitHub `cl
 3. Run `pnpm test` and `node scripts/validate-release.cjs`, then push to `main`.
 4. GitHub validation must pass before `publish-classroom` advances the delivery branch.
 
-Keep `package.json` at the same version for classroom-only changes. Once that desktop version has been released, the workflow skips installer builds and publishes only the classroom channel. Add matching shared assignments and tutor-only answer guides through the separate private classroom service when introducing a new assigned lesson. An in-app lesson authoring editor is not included in this change.
+Keep `package.json` at the same version for classroom-only changes. Once that desktop version has been released, the workflow skips installer builds and publishes only the classroom channel. Add matching shared assignments and tutor-only answer guides through the separate private classroom service when introducing a new assigned lesson. The classroom editor below now supports creating classes and custom lessons directly in the app.
 
 The native bridge is versioned. Changes to `desktop/`, native dependencies, Electron, or new operating-system features need a desktop version bump and installers. Raise the manifest’s minimum shell version or bridge version when a classroom interface requires new native capabilities. Existing apps keep their saved interface if they cannot use a newer bridge.
 
 Classroom downloads are pinned to one commit of this repository, fetched over HTTPS without credentials, bounded by file/count/total limits, and kept inside the app’s own cache. No archive extraction, native executable patches, account records, password tokens, or assignment uploads are involved in the GitHub content channel. The renderer keeps its existing sandbox, context isolation, navigation restrictions, and a narrowly checked main-frame bridge.
+
+## Classes, lesson editor, and classroom designs
+
+This is a classroom-content update for desktop 0.6.0; the desktop version stays unchanged. Reopen the app or choose Updates → Check classroom updates → Reload classroom after saving open work.
+
+Tutors can use **Classrooms → Add class**, **Customize classroom**, and **Add lesson**. Classes have stable numeric IDs, their own unit folders, a name, description, icon, theme, accent/background colors, a pattern, and optional personal banner/background pictures. Six illustrated themes are included. Picture input uses the browser file picker, re-encodes to a small JPEG, and saves in the authenticated classroom state. No user-selected pictures are added to GitHub.
+
+The lesson editor supports a goal, optional YouTube video, up to ten short readings, a step-by-step visual, assignment instructions, and a private tutor guide. Saving publishes the lesson and creates or updates its assignment. Editing keeps existing answers and grades. Custom lessons and designs are shared records, so future edits need no app download. The original GED lessons remain available.
+
+An EffectCraft Studio starter class introduces compositions, layers, and a first title card, based on the [official EffectCraft project](https://github.com/storytold/effectcraft). Its assignment accepts a screenshot and explanation; no video render or project-file upload is required. The starter lesson has no embedded tutorial video. Tutors may add a YouTube video in the editor.
+
+The shared service enforces tutor-only editing, hides answer guides from student responses, validates class/lesson membership, and preserves older clients’ GED views without dropping extracurricular records. Personal notes remain per account. Up to 20 classes and 200 custom lessons are supported, subject to classroom request-size limits.
