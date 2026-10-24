@@ -5,28 +5,28 @@
   "files": [
     {
       "path": "account.js",
-      "size": 7066,
-      "sha256": "0abc4cc0c8f37054ad265bd9fc34408d08983c11f29feab7e6fb53c25aa18f61"
+      "size": 7915,
+      "sha256": "02578d2d21bca7aace799f0f0ac2b76fbafd56104694b9a6f00da679591d0448"
     },
     {
       "path": "app.js",
-      "size": 13128,
-      "sha256": "779828098f796dfc605123dfc12b83c60e959e16032dbde23f530c51f46dcc65"
+      "size": 13182,
+      "sha256": "2915124654b46ecd4160784c2619016521c828165ad0eb7d339e39d2f0a998f0"
     },
     {
       "path": "authoring.js",
-      "size": 19729,
-      "sha256": "bb70d62064f88cd537aed91b3c7b1a50fbc4c05896389541e06850f59663acc0"
+      "size": 19965,
+      "sha256": "0527d40a1666a7db37cf76d9128813c71cadfdd57cdbec5c55a6dc040e07527a"
     },
     {
       "path": "index.html",
-      "size": 2607,
-      "sha256": "1ef956a30b31371d6db7f584d63b5d44ac56295ecc5abac35de7ab24b7e37791"
+      "size": 2605,
+      "sha256": "f40a6a681b78a40a2b558d25b55f29dfeb51c15698288d7de7f85d6591c002da"
     },
     {
       "path": "lessons.js",
-      "size": 27662,
-      "sha256": "fe0dffdad210fa53bfa8a751fc6e8ea00d72ab65684ca8484fe3a61d1e31162a"
+      "size": 27733,
+      "sha256": "81a3efca8cc8b4c1da91e85b0855d47982c5b9722f79f84c964d6ee737f49eec"
     },
     {
       "path": "math.js",
@@ -35,8 +35,8 @@
     },
     {
       "path": "student-preview.js",
-      "size": 2608,
-      "sha256": "3503ca5b4da9ad1a6177d45943e0d744610fea7f2522917dd1d78018fcf4f01d"
+      "size": 2783,
+      "sha256": "fa8f33ec313216e5cafc78bdc3b9298ec7289349a6062d9da61b23ae5e4c9135"
     },
     {
       "path": "style.css",
@@ -174,5 +174,5 @@
       "sha256": "353bc416eeb2cd4624348722b45df34c9bf8c06252b32dc12822a18f31d079fa"
     }
   ],
-  "contentId": "7b33cf98a00e7afa59f1b9137381ca6b23ae6d0adc1dc9502610d5727db7133a"
+  "contentId": "0e63e9eef8a4a7d6f895087824645edcf41c0dae1dbcab871f497da1d1a92cfa"
 }
